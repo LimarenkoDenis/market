@@ -1,3 +1,4 @@
+import { CartService } from './../../shared/services/cart.service';
 import { ProductService } from './../../shared/services/product.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -12,7 +13,7 @@ export class ProductListComponent implements OnInit {
   // add type
   public products;
 
-  constructor(private _ProductService: ProductService) { }
+  constructor(private _ProductService: ProductService, private _CartService: CartService) { }
 
   ngOnInit() {
     this.getProducts();
@@ -24,5 +25,9 @@ export class ProductListComponent implements OnInit {
       products => this.products = products,
       error => console.log(error)
     );
+  }
+
+  addToCart(product) {
+    this._CartService.addToCart(product);
   }
 }

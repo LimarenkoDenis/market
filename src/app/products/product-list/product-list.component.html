@@ -1,5 +1,8 @@
 <div class="col-md-3" *ngFor="let product of products">
     <div class="ibox">
-        <product [product]="product"></product>
+        <product
+          [product]="product"
+          (addToCart)="addToCart(product)">
+        </product>
     </div>
 </div>
