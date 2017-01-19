@@ -21,6 +21,7 @@ import { ProductComponent } from './products/product-list/product/product.compon
 import { ProductCreateComponent } from './products/product-create/product-create.component';
 import { AdminComponent } from './admin/admin.component';
 import { LoginComponent } from './login/login.component';
+import { OrdersComponent } from './orders/orders.component';
 
 const firebaseConfig = {
     apiKey: 'AIzaSyDosbaYVzyWWZ3rQ_lk408jgYbvTnir-H0',
@@ -42,7 +43,8 @@ const firebaseConfig = {
     ProductComponent,
     ProductCreateComponent,
     AdminComponent,
-    LoginComponent
+    LoginComponent,
+    OrdersComponent
   ],
   imports: [
     BrowserModule,
