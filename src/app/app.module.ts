@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AngularFireModule } from 'angularfire2';
 import { AppRouting }  from './app.routes';
+import { CarouselModule } from 'ng2-bootstrap/carousel';
 
 import { AppComponent } from './app.component';
 import { LayoutComponent } from './layout/layout.component';
@@ -43,7 +44,8 @@ const firebaseConfig = {
     ReactiveFormsModule,
     HttpModule,
     AppRouting,
-    AngularFireModule.initializeApp(firebaseConfig)
+    AngularFireModule.initializeApp(firebaseConfig),
+    CarouselModule.forRoot()
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]
