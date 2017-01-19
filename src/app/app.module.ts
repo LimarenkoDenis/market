@@ -1,3 +1,5 @@
+import { AuthGuardService } from './shared/services/auth-guard.service';
+import { LoginService } from './shared/services/login.service';
 import { ProductService } from './shared/services/product.service';
 
 import { BrowserModule } from '@angular/platform-browser';
@@ -17,6 +19,8 @@ import { ProductDetailComponent } from './products/product-detail/product-detail
 import { ProductListComponent } from './products/product-list/product-list.component';
 import { ProductComponent } from './products/product-list/product/product.component';
 import { ProductCreateComponent } from './products/product-create/product-create.component';
+import { AdminComponent } from './admin/admin.component';
+import { LoginComponent } from './login/login.component';
 
 const firebaseConfig = {
     apiKey: 'AIzaSyDosbaYVzyWWZ3rQ_lk408jgYbvTnir-H0',
@@ -36,7 +40,9 @@ const firebaseConfig = {
     ProductDetailComponent,
     ProductListComponent,
     ProductComponent,
-    ProductCreateComponent
+    ProductCreateComponent,
+    AdminComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +53,7 @@ const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     CarouselModule.forRoot()
   ],
-  providers: [ProductService],
+  providers: [ProductService, LoginService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
