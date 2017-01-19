@@ -32,7 +32,7 @@ export class LoginService {
 
   isSignIn () {
     let user = window.localStorage.getItem('user');
-    console.log(user);
+    // console.log(user);
     if (user) {
       this.currentUser = JSON.parse(window.localStorage.getItem('user'));
       console.log('user exist');

@@ -16,11 +16,11 @@ const routes: Routes = [
     path: '',
     component: LayoutComponent,
     children: [
-      { path: 'admin', component: AdminComponent,  canActivate: [ AuthGuardService ]},
+      { path: 'admin', component: AdminComponent, canActivate: [ AuthGuardService ]},
       { path: '', redirectTo: 'products', pathMatch: 'full'},
       { path: 'products', component: ProductListComponent },
       { path: 'products/:productId', component: ProductDetailComponent },
-      { path: 'product/create', component: ProductCreateComponent},
+      { path: 'product/create', component: ProductCreateComponent, canActivate: [ AuthGuardService ]},
       { path: 'orders', component: OrdersComponent }
     ]
   },
