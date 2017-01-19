@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
+// TODO work with localStorage
+
 @Injectable()
 export class CartService {
 
