@@ -24,4 +24,8 @@ export class OrdersComponent implements OnInit {
       });
   }
 
+  removeItemFromCart(order) {
+    this._CartService.removeItem(order);
+  }
+
 }

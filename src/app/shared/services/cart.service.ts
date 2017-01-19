@@ -20,4 +20,12 @@ export class CartService {
   getOrders() {
     return Observable.of(this.orders);
   }
+
+  removeItem(order) {
+    let index = this.orders.indexOf(order);
+    console.log(index);
+    if (index > -1) {
+      this.orders.splice(index, 1);
+    }
+  }
 }
