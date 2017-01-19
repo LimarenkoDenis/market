@@ -1,3 +1,4 @@
+import { CartService } from './shared/services/cart.service';
 import { AuthGuardService } from './shared/services/auth-guard.service';
 import { LoginService } from './shared/services/login.service';
 import { ProductService } from './shared/services/product.service';
@@ -55,7 +56,7 @@ const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     CarouselModule.forRoot()
   ],
-  providers: [ProductService, LoginService, AuthGuardService],
+  providers: [ProductService, LoginService, AuthGuardService, CartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

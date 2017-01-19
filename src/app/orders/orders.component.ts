@@ -1,3 +1,4 @@
+import { CartService } from './../shared/services/cart.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrdersComponent implements OnInit {
 
-  constructor() { }
+  public orders = [];
+
+  constructor(private _CartService: CartService) { }
 
   ngOnInit() {
+    this.getOrders();
+    console.log(this.orders);
+  }
+
+  getOrders() {
+    this._CartService.getOrders()
+      .subscribe(orders => {
+        this.orders = orders;
+      });
   }
 
 }
