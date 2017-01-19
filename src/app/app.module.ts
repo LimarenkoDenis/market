@@ -2,7 +2,7 @@ import { ProductService } from './shared/services/product.service';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AngularFireModule } from 'angularfire2';
 import { AppRouting }  from './app.routes';
@@ -15,6 +15,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { ProductDetailComponent } from './products/product-detail/product-detail.component';
 import { ProductListComponent } from './products/product-list/product-list.component';
 import { ProductComponent } from './products/product-list/product/product.component';
+import { ProductCreateComponent } from './products/product-create/product-create.component';
 
 const firebaseConfig = {
     apiKey: 'AIzaSyDosbaYVzyWWZ3rQ_lk408jgYbvTnir-H0',
@@ -33,11 +34,13 @@ const firebaseConfig = {
     SidebarComponent,
     ProductDetailComponent,
     ProductListComponent,
-    ProductComponent
+    ProductComponent,
+    ProductCreateComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     AppRouting,
     AngularFireModule.initializeApp(firebaseConfig)

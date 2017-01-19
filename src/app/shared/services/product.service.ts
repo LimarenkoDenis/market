@@ -9,4 +9,8 @@ export class ProductService {
   getProducts () {
     return this._AngularFire.database.list(`/products`);
   }
+
+  createProduct(product) {
+    return this._AngularFire.database.list(`/products`).push(product);
+  }
 }
