@@ -30,4 +30,9 @@ export class CartService {
       this.orders.splice(index, 1);
     }
   }
+
+  //  fix it
+  getCartQuantity() {
+    return Observable.of(this.orders.length);
+  }
 }
