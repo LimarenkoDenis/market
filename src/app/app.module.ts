@@ -1,4 +1,5 @@
 import { ValuesPipe } from './shared/pipes/values';
+
 import { CartService } from './shared/services/cart.service';
 import { AuthGuardService } from './shared/services/auth-guard.service';
 import { LoginService } from './shared/services/login.service';
@@ -26,6 +27,7 @@ import { ProductCreateComponent } from './products/product-create/product-create
 
 import { AdminComponent } from './admin/admin.component';
 import { LoginComponent } from './login/login.component';
+import { SignInComponent } from './login/sign-in/sign-in.component';
 
 import { OrdersComponent } from './orders/orders.component';
 import { CartBtnComponent } from './orders/cart-btn/cart-btn.component';
@@ -52,6 +54,7 @@ const firebaseConfig = {
     AdminComponent,
     LoginComponent,
     OrdersComponent,
+    SignInComponent,
     CartBtnComponent,
     ProductCommentsComponent,
     ValuesPipe
