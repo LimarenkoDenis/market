@@ -13,4 +13,12 @@ export class ProductService {
   createProduct(product) {
     return this._AngularFire.database.list(`/products`).push(product);
   }
+
+  getProduct(productId: string) {
+    return this._AngularFire.database.object(`/products/${productId}`);
+  }
+
+  addComment(productId, comment) {
+    return this._AngularFire.database.list(`/products/${productId}/comments`).push(comment);
+  }
 }

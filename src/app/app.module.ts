@@ -1,3 +1,4 @@
+import { ValuesPipe } from './shared/pipes/values';
 import { CartService } from './shared/services/cart.service';
 import { AuthGuardService } from './shared/services/auth-guard.service';
 import { LoginService } from './shared/services/login.service';
@@ -16,12 +17,16 @@ import { LayoutComponent } from './layout/layout.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+
 import { ProductDetailComponent } from './products/product-detail/product-detail.component';
 import { ProductListComponent } from './products/product-list/product-list.component';
 import { ProductComponent } from './products/product-list/product/product.component';
+import { ProductCommentsComponent } from './products/product-comments/product-comments.component';
 import { ProductCreateComponent } from './products/product-create/product-create.component';
+
 import { AdminComponent } from './admin/admin.component';
 import { LoginComponent } from './login/login.component';
+
 import { OrdersComponent } from './orders/orders.component';
 import { CartBtnComponent } from './orders/cart-btn/cart-btn.component';
 
@@ -47,7 +52,9 @@ const firebaseConfig = {
     AdminComponent,
     LoginComponent,
     OrdersComponent,
-    CartBtnComponent
+    CartBtnComponent,
+    ProductCommentsComponent,
+    ValuesPipe
   ],
   imports: [
     BrowserModule,
