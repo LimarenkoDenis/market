@@ -5,10 +5,14 @@ import { CanActivate } from '@angular/router';
 @Injectable()
 export class AuthGuardService implements CanActivate {
 
-  constructor(private _LoginService: LoginService) { }
+  private _loginService: LoginService;
 
-  canActivate(): boolean {
-    return this._LoginService.isSignIn();
+  public constructor(_loginService: LoginService) {
+    this._loginService = _loginService;
+  }
+
+  public canActivate(): boolean {
+    return this._loginService.isSignIn();
   }
 }
 

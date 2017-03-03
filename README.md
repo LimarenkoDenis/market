@@ -1,8 +1,10 @@
 # BOB
 
 ## Admin
-`test@gmail.com`
-`test12345`
+```
+login: test@gmail.com
+password: test12345
+```
 
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.19-3.
 

@@ -10,11 +10,15 @@ export class CartBtnComponent implements OnInit {
 
   public cartQuantity: number;
 
-  constructor(private _CartService: CartService) { }
+  private _cartService: CartService;
 
-  ngOnInit() {
-    this._CartService.getCartQuantity()
-    .subscribe(cartQuantity => {
+  public constructor(_cartService: CartService) {
+    this._cartService = _cartService;
+  }
+
+  public ngOnInit(): void {
+    this._cartService.getCartQuantity()
+    .subscribe((cartQuantity: number) => {
       console.log(cartQuantity);
     });
   }

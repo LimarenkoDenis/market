@@ -10,7 +10,7 @@ export class CartService {
 
   public constructor() { }
 
-  public addToCart(product: Product) {
+  public addToCart(product: Product): void {
     const index: number = this.orders.indexOf(product);
     if (index > -1) {
       return;
@@ -18,11 +18,11 @@ export class CartService {
     this.orders.push(product);
   }
 
-  public getOrders() {
+  public getOrders(): Observable<Product[]> {
     return Observable.of(this.orders);
   }
 
-  public removeItem(order) {
+  public removeItem(order: Product): void {
     const index: number = this.orders.indexOf(order);
     if (index > -1) {
       this.orders.splice(index, 1);

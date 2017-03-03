@@ -1,45 +1,25 @@
 import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
-import { AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
+import { AngularFire, AuthMethods, AuthProviders } from 'angularfire2';
 
 @Injectable()
 export class LoginService {
-  public currentUser;
 
-  constructor(
-    private _af: AngularFire,
-    private _router: Router
-  ) {
+  private _angularFire: AngularFire;
+  private _router: Router;
 
+  public constructor(_angularFire: AngularFire, _router: Router) {
+    this._angularFire = _angularFire;
   }
 
-  login(user) {
-    return this._af.auth.login(
-      {
-        email: user.email,
-        password: user.password
-      },
-      {
-        provider: AuthProviders.Password,
-        method: AuthMethods.Password,
-      }
-    );
+  public login(): void {
+    this._router.navigate[''];
   }
 
-  logOut() {
-    this._af.auth.logout();
+  public logOut(): void {
   }
 
-  isSignIn () {
-    let user = window.localStorage.getItem('user');
-    // console.log(user);
-    if (user) {
-      this.currentUser = JSON.parse(window.localStorage.getItem('user'));
-      console.log('user exist');
-      return true;
-    }
-    console.log('eror');
-    this._router.navigate(['login']);
-    return false;
+  public isSignIn(): boolean {
+    return true;
   }
 }

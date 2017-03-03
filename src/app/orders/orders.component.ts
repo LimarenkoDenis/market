@@ -10,19 +10,23 @@ export class OrdersComponent implements OnInit {
 
   public orders: Product[] = [];
 
-  public constructor(private _CartService: CartService) { }
+  private _cartService: CartService;
+
+  public constructor(_cartService: CartService) {
+    this._cartService = _cartService;
+  }
 
   public ngOnInit(): void {
     this.getOrders();
   }
 
   public getOrders(): void {
-    this._CartService.getOrders()
+    this._cartService.getOrders()
       .subscribe((orders: Product[]) => this.orders = orders);
   }
 
-  public removeItemFromCart(order: Product) {
-    this._CartService.removeItem(order);
+  public removeItemFromCart(order: Product): void {
+    this._cartService.removeItem(order);
   }
 
 }
