@@ -1,17 +1,16 @@
-import { ValuesPipe } from './shared/pipes/values';
-
+import { LoginService } from './shared/services/login.service';
 import { CartService } from './shared/services/cart.service';
 import { AuthGuardService } from './shared/services/auth-guard.service';
-import { LoginService } from './shared/services/login.service';
 import { ProductService } from './shared/services/product.service';
 
+import { AngularFireModule } from 'angularfire2';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { AngularFireModule } from 'angularfire2';
-import { AppRouting }  from './app.routes';
 import { CarouselModule } from 'ng2-bootstrap/carousel';
+import { RouterModule } from '@angular/router';
+import { routes } from './app.routes';
 
 import { AppComponent } from './app.component';
 import { LayoutComponent } from './layout/layout.component';
@@ -22,7 +21,6 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { ProductDetailComponent } from './products/product-detail/product-detail.component';
 import { ProductListComponent } from './products/product-list/product-list.component';
 import { ProductComponent } from './products/product-list/product/product.component';
-import { ProductCommentsComponent } from './products/product-comments/product-comments.component';
 import { ProductCreateComponent } from './products/product-create/product-create.component';
 
 import { AdminComponent } from './admin/admin.component';
@@ -56,15 +54,13 @@ const firebaseConfig = {
     OrdersComponent,
     SignInComponent,
     CartBtnComponent,
-    ProductCommentsComponent,
-    ValuesPipe
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    AppRouting,
+    RouterModule.forRoot(routes),
     AngularFireModule.initializeApp(firebaseConfig),
     CarouselModule.forRoot()
   ],

@@ -10,24 +10,25 @@ import { Component, OnInit } from '@angular/core';
 
 export class ProductListComponent implements OnInit {
 
-  // add type
-  public products;
+  public products: Product[];
 
-  constructor(private _ProductService: ProductService, private _CartService: CartService) { }
+  private _productService: ProductService;
+  private _cartService: CartService;
 
-  ngOnInit() {
+  public constructor(_productService: ProductService, _cartService: CartService) {
+    this._productService = _productService;
+    this._cartService = _cartService;
+  }
+
+  public ngOnInit(): void {
     this.getProducts();
   }
 
-  getProducts() {
-    this._ProductService.getProducts()
-    .subscribe(
-      products => this.products = products,
-      error => console.log(error)
-    );
+  public getProducts(): void {
+    this._productService.getProducts().subscribe((products: Product[]) => this.products = products);
   }
 
-  addToCart(product) {
-    this._CartService.addToCart(product);
+  public addToCart(product: Product): void {
+    this._cartService.addToCart(product);
   }
 }

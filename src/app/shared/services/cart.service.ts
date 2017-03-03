@@ -6,33 +6,31 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class CartService {
 
-  public orders = [];
+  public orders: Product[] = [];
 
-  constructor() { }
+  public constructor() { }
 
-  addToCart(product) {
-    // if product already exist, then don't push
-    let index = this.orders.indexOf(product);
+  public addToCart(product: Product) {
+    const index: number = this.orders.indexOf(product);
     if (index > -1) {
       return;
     }
     this.orders.push(product);
   }
 
-  getOrders() {
+  public getOrders() {
     return Observable.of(this.orders);
   }
 
-  removeItem(order) {
-    let index = this.orders.indexOf(order);
-    console.log(index);
+  public removeItem(order) {
+    const index: number = this.orders.indexOf(order);
     if (index > -1) {
       this.orders.splice(index, 1);
     }
   }
 
   //  fix it
-  getCartQuantity() {
+  public getCartQuantity(): Observable<number> {
     return Observable.of(this.orders.length);
   }
 }

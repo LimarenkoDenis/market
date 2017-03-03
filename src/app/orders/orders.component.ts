@@ -8,23 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrdersComponent implements OnInit {
 
-  public orders = [];
+  public orders: Product[] = [];
 
-  constructor(private _CartService: CartService) { }
+  public constructor(private _CartService: CartService) { }
 
-  ngOnInit() {
+  public ngOnInit(): void {
     this.getOrders();
-    console.log(this.orders);
   }
 
-  getOrders() {
+  public getOrders(): void {
     this._CartService.getOrders()
-      .subscribe(orders => {
-        this.orders = orders;
-      });
+      .subscribe((orders: Product[]) => this.orders = orders);
   }
 
-  removeItemFromCart(order) {
+  public removeItemFromCart(order: Product) {
     this._CartService.removeItem(order);
   }
 

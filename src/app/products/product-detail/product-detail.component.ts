@@ -11,37 +11,23 @@ import { FormControl, Validators } from '@angular/forms';
   styleUrls: ['./product-detail.component.css']
 })
 export class ProductDetailComponent implements OnInit {
-  // type!
-  public product;
-  public comment = new FormControl('', [Validators.minLength(2)]);
 
-  constructor(
-    private route: ActivatedRoute,
-    private location: Location,
-    private _ProductService: ProductService
-  ) { }
+  public product: Product;
 
-  ngOnInit(): void {
-    this.route.params
-      .switchMap((params: Params) => this._ProductService.getProduct(params['productId']))
-      .subscribe(
-        product => this.product = product,
-        error => console.log(error)
-      );
+  private _router: ActivatedRoute;
+  private _location: Location;
+  private _productService: ProductService;
+
+  public constructor(_router: ActivatedRoute, _location: Location,  _productService: ProductService) {
+    this._router = _router;
+    this._location = _location;
+    this._productService = _productService;
+
   }
 
-
-  addComment() {
-    let comment = {
-      text: this.comment.value,
-      name: 'get from auth',
-      avatar: 'auth photo url'
-    };
-
-    this.route.params
-      .map(params => params['productId'])
-      .subscribe(productId => {
-        this._ProductService.addComment(productId, comment);
-      });
+  public ngOnInit(): void {
+    this._router.params
+      .switchMap((params: Params) => this._productService.getProduct(params['productId']))
+      .subscribe((product: Product) => this.product = product);
   }
 }

@@ -1,24 +1,20 @@
 import { Injectable } from '@angular/core';
-import { AngularFire } from 'angularfire2';
+import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
 
 @Injectable()
 export class ProductService {
 
-  constructor(private _AngularFire: AngularFire) { }
+  public constructor(private _AngularFire: AngularFire) { }
 
-  getProducts () {
+  public getProducts (): FirebaseListObservable<Product[]> {
     return this._AngularFire.database.list(`/products`);
   }
 
-  createProduct(product) {
+  public createProduct(product: Product): firebase.database.ThenableReference {
     return this._AngularFire.database.list(`/products`).push(product);
   }
 
-  getProduct(productId: string) {
+  public getProduct(productId: string): FirebaseObjectObservable<Product> {
     return this._AngularFire.database.object(`/products/${productId}`);
-  }
-
-  addComment(productId, comment) {
-    return this._AngularFire.database.list(`/products/${productId}/comments`).push(comment);
   }
 }

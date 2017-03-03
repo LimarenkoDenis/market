@@ -11,25 +11,25 @@ export class ProductCreateComponent implements OnInit {
 
   public productForm: FormGroup;
 
-  constructor(
-    private fb: FormBuilder,
-    private _ProductService: ProductService
-  ) { }
+  private _fb: FormBuilder;
+  private _productService: ProductService;
 
-  ngOnInit() {
-    this.productForm = this.fb.group({
+  public constructor(_fb: FormBuilder, _productService: ProductService) {
+    this._fb = _fb;
+    this._productService = _productService;
+  }
+
+  public ngOnInit(): void {
+    this.productForm = this._fb.group({
       name:         ['', [Validators.required, Validators.minLength(2)]],
       description:  ['', [Validators.required, Validators.minLength(5)]],
       price:        ['', [Validators.required]]
     });
   }
 
-  // add type
-  create({ value, valid }: { value, valid: boolean }) {
-    console.log(value, valid);
+  public create({ value, valid }: { value: Product, valid: boolean }): void {
     if (valid) {
-      this._ProductService.createProduct(value).catch(error => console.log(error));
-      // this.location.back();
+      this._productService.createProduct(value);
     }
   }
 

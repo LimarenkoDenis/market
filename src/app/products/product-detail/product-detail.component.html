@@ -60,42 +60,6 @@
                         </div>
                     </div>
 
-                    <div class="ibox-content">
-
-                      <app-product-comments
-                          *ngIf="product.comments"
-                          [comments]="product.comments">
-                      </app-product-comments>
-
-                      <div class="chat-form">
-                        <app-sign-in></app-sign-in>
-
-                          <!--<form role="form"
-                                (ngSubmit)="addComment(comment)">
-                              <div class="form-group">
-                                  <textarea class="form-control" placeholder="Message"
-                                            [(ngModel)]="comment"
-                                            name="comment">
-                                  </textarea>
-                              </div>
-                              <div class="text-right">
-                                  <button type="submit" class="btn btn-sm btn-primary m-t-n-xs"><strong>Send message</strong></button>
-                              </div>
-                          </form>-->
-
-                        <form role="form">
-                              <div class="form-group">
-                                  <textarea class="form-control" placeholder="Message" [formControl]="comment">
-                                  </textarea>
-                              </div>
-                              <div class="text-right">
-                                  <button (click)="addComment()" type="submit" class="btn btn-sm btn-primary m-t-n-xs"><strong>Send message</strong></button>
-                              </div>
-                          </form>
-                      </div>
-
-                    </div>
-
                 </div>
             </div>
 
