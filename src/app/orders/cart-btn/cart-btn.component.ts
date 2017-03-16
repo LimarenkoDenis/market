@@ -17,10 +17,12 @@ export class CartBtnComponent implements OnInit {
   }
 
   public ngOnInit(): void {
-    this._cartService.getCartQuantity()
-    .subscribe((cartQuantity: number) => {
-      console.log(cartQuantity);
-    });
+    // this._cartService.getCartQuantity()
+    // .subscribe((cartQuantity: number) => {
+    //   console.log(cartQuantity);
+    // });
+    this._cartService.cardStream$$.subscribe(product => console.log(product))
+    this._cartService.notebooks$.subscribe((product) => this._cartService.cardStream$$.next(product));
   }
 
 }

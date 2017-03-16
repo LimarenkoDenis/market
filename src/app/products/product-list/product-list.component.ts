@@ -29,6 +29,7 @@ export class ProductListComponent implements OnInit {
   }
 
   public addToCart(product: Product): void {
+    this._cartService.cardStream$$.next(product);
     this._cartService.addToCart(product);
   }
 }
