@@ -14,16 +14,11 @@ export class ProductDetailComponent implements OnInit {
 
   public product: Product;
 
-  private _router: ActivatedRoute;
-  private _location: Location;
-  private _productService: ProductService;
-
-  public constructor(_router: ActivatedRoute, _location: Location,  _productService: ProductService) {
-    this._router = _router;
-    this._location = _location;
-    this._productService = _productService;
-
-  }
+  public constructor(
+    private _router: ActivatedRoute,
+    private _location: Location,
+    private  _productService: ProductService
+  ) {}
 
   public ngOnInit(): void {
     this._router.params

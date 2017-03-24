@@ -1,14 +1,15 @@
 import { AuthGuardService } from './shared/services/auth-guard.service';
-import { AdminComponent } from './admin/admin.component';
 import { ModuleWithProviders } from '@angular/core';
 import { Routes } from '@angular/router';
 
-import { ProductDetailComponent } from './products/product-detail/product-detail.component';
 import { ProductListComponent } from './products/product-list/product-list.component';
-import { LayoutComponent } from './layout/layout.component';
+import { ProductDetailComponent } from './products/product-detail/product-detail.component';
 import { ProductCreateComponent } from './products/product-create/product-create.component';
-import { LoginComponent } from './login/login.component';
+import { ProductEditComponent } from './products/product-edit/product-edit.component';
 import { OrdersComponent } from './orders/orders.component';
+
+import { LayoutComponent } from './layout/layout.component';
+import { LoginComponent } from './login/login.component';
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent},
@@ -18,8 +19,8 @@ export const routes: Routes = [
       { path: 'products', component: ProductListComponent },
       { path: 'products/:productId', component: ProductDetailComponent },
       { path: 'product/create', component: ProductCreateComponent, canActivate: [ AuthGuardService ]},
-      { path: 'orders', component: OrdersComponent },
-      { path: 'admin', component: AdminComponent, canActivate: [ AuthGuardService ]}
+      { path: 'products/:productId/edit', component: ProductEditComponent, canActivate: [ AuthGuardService ]},
+      { path: 'orders', component: OrdersComponent }
     ]
   },
 ];

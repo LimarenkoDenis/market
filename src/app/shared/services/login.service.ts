@@ -1,19 +1,27 @@
 import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
-import { AngularFire, AuthMethods, AuthProviders } from 'angularfire2';
+import { AngularFire, AuthMethods, AuthProviders, FirebaseAuthState } from 'angularfire2';
 
 @Injectable()
 export class LoginService {
 
-  private _angularFire: AngularFire;
-  private _router: Router;
 
-  public constructor(_angularFire: AngularFire, _router: Router) {
-    this._angularFire = _angularFire;
-  }
+  public constructor(
+    private _angularFire: AngularFire,
+    private _router: Router
+  ) {}
 
-  public login(): void {
-    this._router.navigate[''];
+  public login(user: User): firebase.Promise<FirebaseAuthState> {
+    return this._angularFire.auth.login(
+      {
+        email: user.email,
+        password: user.password
+      },
+      {
+        provider: AuthProviders.Password,
+        method: AuthMethods.Password,
+      }
+    );
   }
 
   public logOut(): void {

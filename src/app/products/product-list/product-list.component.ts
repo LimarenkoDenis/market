@@ -12,13 +12,10 @@ export class ProductListComponent implements OnInit {
 
   public products: Product[];
 
-  private _productService: ProductService;
-  private _cartService: CartService;
-
-  public constructor(_productService: ProductService, _cartService: CartService) {
-    this._productService = _productService;
-    this._cartService = _cartService;
-  }
+  public constructor(
+    private _productService: ProductService,
+    private _cartService: CartService
+  ) {}
 
   public ngOnInit(): void {
     this.getProducts();
@@ -27,9 +24,11 @@ export class ProductListComponent implements OnInit {
   public getProducts(): void {
     this._productService.getProducts().subscribe((products: Product[]) => this.products = products);
   }
-
+  // to-do fix
   public addToCart(product: Product): void {
     this._cartService.cardStream$$.next(product);
     this._cartService.addToCart(product);
   }
+
+  public noop(product): void {}
 }

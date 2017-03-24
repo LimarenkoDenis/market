@@ -9,27 +9,25 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class ProductCreateComponent implements OnInit {
 
-  public productForm: FormGroup;
+  public product: FormGroup;
 
-  private _fb: FormBuilder;
-  private _productService: ProductService;
-
-  public constructor(_fb: FormBuilder, _productService: ProductService) {
-    this._fb = _fb;
-    this._productService = _productService;
-  }
+  public constructor(
+    private _fb: FormBuilder,
+    private _productService: ProductService
+  ) {}
 
   public ngOnInit(): void {
-    this.productForm = this._fb.group({
+    this.product = this._fb.group({
       name:         ['', [Validators.required, Validators.minLength(2)]],
       description:  ['', [Validators.required, Validators.minLength(5)]],
-      price:        ['', [Validators.required]]
+      price:        ['', [Validators.required]],
+      tags:         ['']
     });
   }
 
-  public create({ value, valid }: { value: Product, valid: boolean }): void {
-    if (valid) {
-      this._productService.createProduct(value);
+  public create(product: FormGroup): void {
+    if (product.valid) {
+      this._productService.createProduct(product.value);
     }
   }
 

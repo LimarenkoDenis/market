@@ -1,4 +1,5 @@
-<div class="col-md-3" *ngFor="let product of products">
+<input type="text" placeholder="Search" class="form-group form-control" #product (keyup)="noop(product.value)">
+<div class="col-md-3" *ngFor="let product of products|search:product.value">
     <div class="ibox">
         <product
           [product]="product"

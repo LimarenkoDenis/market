@@ -6,7 +6,7 @@ import { ProductService } from './shared/services/product.service';
 import { AngularFireModule } from 'angularfire2';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { CarouselModule } from 'ng2-bootstrap/carousel';
 import { RouterModule } from '@angular/router';
@@ -23,19 +23,15 @@ import { ProductListComponent } from './products/product-list/product-list.compo
 import { ProductComponent } from './products/product-list/product/product.component';
 import { ProductCreateComponent } from './products/product-create/product-create.component';
 
-import { AdminComponent } from './admin/admin.component';
 import { LoginComponent } from './login/login.component';
 
 import { OrdersComponent } from './orders/orders.component';
 import { CartBtnComponent } from './orders/cart-btn/cart-btn.component';
+import { SearchPipe } from './shared/pipe/search.pipe';
+import { AccessDirective } from './access.directive';
+import { ProductEditComponent } from './products/product-edit/product-edit.component';
 
-const firebaseConfig = {
-    apiKey: 'AIzaSyDosbaYVzyWWZ3rQ_lk408jgYbvTnir-H0',
-    authDomain: 'project-250ce.firebaseapp.com',
-    databaseURL: 'https://project-250ce.firebaseio.com',
-    storageBucket: 'project-250ce.appspot.com',
-    messagingSenderId: '599921874800'
-};
+import { FIREBASECONFIG } from './config';
 
 @NgModule({
   declarations: [
@@ -48,18 +44,19 @@ const firebaseConfig = {
     ProductListComponent,
     ProductComponent,
     ProductCreateComponent,
-    AdminComponent,
     LoginComponent,
     OrdersComponent,
     CartBtnComponent,
+    SearchPipe,
+    AccessDirective,
+    ProductEditComponent,
   ],
   imports: [
     BrowserModule,
-    FormsModule,
     ReactiveFormsModule,
     HttpModule,
     RouterModule.forRoot(routes),
-    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireModule.initializeApp(FIREBASECONFIG),
     CarouselModule.forRoot()
   ],
   providers: [ProductService, LoginService, AuthGuardService, CartService],
