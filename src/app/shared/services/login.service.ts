@@ -1,10 +1,10 @@
+import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
-import { AngularFire, AuthMethods, AuthProviders, FirebaseAuthState } from 'angularfire2';
+import { AngularFire, AuthMethods, AuthProviders, FirebaseAuthState, FirebaseObjectObservable } from 'angularfire2';
 
 @Injectable()
 export class LoginService {
-
 
   public constructor(
     private _angularFire: AngularFire,
@@ -30,4 +30,5 @@ export class LoginService {
   public isSignIn(): boolean {
     return true;
   }
+
 }

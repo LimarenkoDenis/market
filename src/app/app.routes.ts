@@ -18,9 +18,18 @@ export const routes: Routes = [
       { path: '', redirectTo: 'products', pathMatch: 'full'},
       { path: 'products', component: ProductListComponent },
       { path: 'products/:productId', component: ProductDetailComponent },
-      { path: 'product/create', component: ProductCreateComponent, canActivate: [ AuthGuardService ]},
-      { path: 'products/:productId/edit', component: ProductEditComponent, canActivate: [ AuthGuardService ]},
+      { path: 'product/create',
+        component: ProductCreateComponent,
+        canActivate: [ AuthGuardService ],
+        data: { roles: ['admin'] }
+      },
+      { path: 'products/:productId/edit',
+        component: ProductEditComponent,
+        canActivate: [ AuthGuardService ],
+        data: { roles: ['admin'] }
+      },
       { path: 'orders', component: OrdersComponent }
     ]
   },
+  {  path: '**', redirectTo: 'products' }
 ];

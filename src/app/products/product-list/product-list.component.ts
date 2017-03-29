@@ -30,5 +30,5 @@ export class ProductListComponent implements OnInit {
     this._cartService.addToCart(product);
   }
 
-  public noop(product): void {}
+  public noop(product: string): void {}
 }

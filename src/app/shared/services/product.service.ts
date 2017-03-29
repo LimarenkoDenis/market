@@ -4,7 +4,6 @@ import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'a
 @Injectable()
 export class ProductService {
 
-
   public constructor(
     private _angularFire: AngularFire
   ) {}

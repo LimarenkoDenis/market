@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
   public onSubmit(user: FormGroup): void {
     this._loginService.login(user.value)
     .then(() => {
-      this._router.navigate['/products'];
+      this._router.navigate(['']);
     })
     .catch((error: FirebaseError) => this.error = error);
   }
